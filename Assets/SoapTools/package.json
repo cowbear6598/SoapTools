@@ -1,0 +1,21 @@
+{
+  "name": "com.soap.soap-tools",
+  "version": "0.0.1",
+  "description": "我常用的開發工具",
+  "displayName": "SoapTools",
+  "unity": "2022.3",
+  "unityRelease": "14f1",
+  "dependencies": {
+    "com.neuecc.unirx": "7.1.0",
+    "com.cysharp.unitask": "2.3.3",
+    "com.unity.test-framework": "1.1.33"
+  },
+  "author": {
+    "name": "Soap",
+    "email": "cowbear6598@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cowbear6598/SoapTools.git"
+  }
+}

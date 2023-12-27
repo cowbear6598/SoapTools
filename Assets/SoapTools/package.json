@@ -7,8 +7,8 @@
   "unityRelease": "14f1",
   "dependencies": {
     "com.neuecc.unirx": "7.1.0",
-    "com.cysharp.unitask": "2.3.3",
-    "com.unity.test-framework": "1.1.33"
+    "com.cysharp.unitask": "2.5.0",
+    "com.unity.test-framework": "1.4.2"
   },
   "author": {
     "name": "Soap",

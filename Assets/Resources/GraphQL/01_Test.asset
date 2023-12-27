@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a5ca24ef914729b3bdf7c88817b87e, type: 3}
   m_Name: 01_Test
   m_EditorClassIdentifier: 
-  url: https://swapi-graphql.netlify.app/.netlify/functions/index
+  url: https://api.mocki.io/v2/c4d7a195/graphql
   operation: 0
   timeout: 30
-  content: "{\r\n  allPeople {\r\n    people {\r\n      name\r\n      birthYear\r\n   
-    }\r\n  }\r\n  person(personID: 1) {\r\n    name\r\n    birthYear\r\n    eyeColor\r\n 
-    }\r\n  starship(starshipID: 10) {\r\n    name\r\n    starshipClass\r\n  }\r\n}"
+  content: "\ruser(id: \"someUser\") {\r\n  todos {\r\n    id\r\n    description\r\n 
+    }\r\n}"

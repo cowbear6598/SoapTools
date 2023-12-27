@@ -8,7 +8,7 @@ namespace SoapTools.Database
     {
         IGraphQLBuilder SetRequestSO(GraphQLRequestSO requestSo);
         IGraphQLBuilder SetUrl(string url);
-        IGraphQLBuilder SetMethod(Method method);
+        IGraphQLBuilder SetOperation(Operation operation);
         IGraphQLBuilder SetTimeout(int timeout);
         IGraphQLBuilder AddHeader(string key, string value);
         IGraphQLBuilder SetContent(string content);

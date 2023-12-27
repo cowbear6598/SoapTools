@@ -3,8 +3,8 @@
 namespace DatabaseTools.Tests.Editor.Types
 {
     [Serializable]
-    public struct GraphQLResponseData
+    public class GraphQLResponseData
     {
-        public Person data;
+        public UserResponseData data;
     }
 }

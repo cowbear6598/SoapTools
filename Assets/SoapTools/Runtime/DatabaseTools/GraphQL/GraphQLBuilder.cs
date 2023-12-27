@@ -10,10 +10,12 @@ namespace SoapTools.Database
     public class GraphQLBuilder : IGraphQLBuilder
     {
         private UnityWebRequest req;
+        private Operation       operation = Operation.query;
 
         public GraphQLBuilder()
         {
             req                 = new UnityWebRequest();
+            req.method          = "POST";
             req.downloadHandler = new DownloadHandlerBuffer();
 
             req.SetRequestHeader("content-type", "application/json");
@@ -22,18 +24,13 @@ namespace SoapTools.Database
         public IGraphQLBuilder SetRequestSO(GraphQLRequestSO requestSo)
         {
             req.url     = requestSo.url;
-            req.method  = "POST";
             req.timeout = requestSo.timeout;
 
-            var escapedContent           = requestSo.content.Replace("\"", "\\\"");
-            var withoutNewLines          = Regex.Replace(escapedContent, @"\r\n?|\n", " ");
-            var withoutUnnecessarySpaces = Regex.Replace(withoutNewLines, @"\s+", " ");
+            operation = requestSo.operation;
 
-            var jsonData = "{\"query\":\"" + withoutUnnecessarySpaces + "\"}";
+            var jsonRaw = MakeGraphQLContent(requestSo.content);
 
-            Debug.Log(jsonData);
-
-            req.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(jsonData));
+            req.uploadHandler = new UploadHandlerRaw(jsonRaw);
 
             return this;
         }
@@ -44,9 +41,9 @@ namespace SoapTools.Database
             return this;
         }
 
-        public IGraphQLBuilder SetMethod(Method method)
+        public IGraphQLBuilder SetOperation(Operation operation)
         {
-            req.method = method.ToString();
+            this.operation = operation;
             return this;
         }
 
@@ -64,7 +61,9 @@ namespace SoapTools.Database
 
         public IGraphQLBuilder SetContent(string content)
         {
-            req.uploadHandler = new UploadHandlerRaw(Encoding.UTF8.GetBytes(content));
+            var jsonRaw = MakeGraphQLContent(content);
+
+            req.uploadHandler = new UploadHandlerRaw(jsonRaw);
             return this;
         }
 
@@ -84,6 +83,17 @@ namespace SoapTools.Database
                 throw new Exception(req.error);
 
             return JsonUtility.FromJson<TResponseData>(req.downloadHandler.text);
+        }
+
+        private byte[] MakeGraphQLContent(string content)
+        {
+            var escapedContent           = content.Replace("\"", "\\\"");
+            var withoutNewLines          = Regex.Replace(escapedContent, @"\r\n?|\n", " ");
+            var withoutUnnecessarySpaces = Regex.Replace(withoutNewLines, @"\s+", " ");
+
+            var jsonData = "{\"" + operation + "\":\"" + withoutUnnecessarySpaces + "\"}";
+
+            return Encoding.UTF8.GetBytes(jsonData);
         }
     }
 }

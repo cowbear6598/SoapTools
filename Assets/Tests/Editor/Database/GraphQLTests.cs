@@ -11,7 +11,7 @@ namespace DatabaseTools.Tests.Editor
     public class GraphQLTests
     {
         [Test]
-        public async Task _01_1_Should_Query_Success_From_SO()
+        public async Task Should_Query_Success_From_SO()
         {
             var requestSO = Resources.Load<GraphQLRequestSO>("GraphQL/01_Test");
             var req = new GraphQLBuilder()
@@ -26,7 +26,7 @@ namespace DatabaseTools.Tests.Editor
         }
 
         [Test]
-        public async Task _01_2_Should_Query_Success_From_Builder()
+        public async Task Should_Query_Success_From_Builder()
         {
             var req = new GraphQLBuilder()
                       .SetUrl("https://api.mocki.io/v2/c4d7a195/graphql")

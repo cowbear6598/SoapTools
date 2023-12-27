@@ -11,7 +11,7 @@ namespace DatabaseTools.Tests.Editor
     public class RestfulTests
     {
         [Test]
-        public async Task _01_1_Should_Request_Simple_Get_Success_From_SO()
+        public async Task Should_Request_Simple_Get_Success_From_SO()
         {
             var requestSO = Resources.Load<RestfulRequestSO>("Restful/01_Test");
             var responseData = await new RestfulBuilder()
@@ -29,7 +29,7 @@ namespace DatabaseTools.Tests.Editor
         }
 
         [Test]
-        public async Task _01_2_Should_Request_Simple_Get_Success_From_Builder()
+        public async Task Should_Request_Simple_Get_Success_From_Builder()
         {
             var responseData = await new RestfulBuilder()
                                      .SetUrl("https://jsonplaceholder.typicode.com/posts/1")
@@ -49,7 +49,7 @@ namespace DatabaseTools.Tests.Editor
         }
 
         [Test]
-        public async Task _02_1_Should_Request_Simple_Post_Success_From_SO()
+        public async Task Should_Request_Simple_Post_Success_From_SO()
         {
             var requestSO   = Resources.Load<RestfulRequestSO>("Restful/02_Test");
             var requestData = new PostRequestData("foo", "bar", 1);
@@ -65,7 +65,7 @@ namespace DatabaseTools.Tests.Editor
         }
 
         [Test]
-        public async Task _02_2_Should_Request_Simple_Post_Success_From_Builder()
+        public async Task Should_Request_Simple_Post_Success_From_Builder()
         {
             var requestData = new PostRequestData("foo", "bar", 1);
 

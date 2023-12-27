@@ -29,6 +29,11 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
 - Open Soap => 物件改名
 - 選擇同樣階層的物件們，給他前墜與後墜以及起始編號，就可以一次改完所有物件的名稱。
 
+### 資料庫
+
+- 分別為 Restful 以及 GraphQL。
+- W.I.P
+
 # 小物件功能
 
 - CanvasResolutionHandler.cs 放在有 CanvasScaler 的物件上，可以自動調整要以寬或高為基準保持 UI 大小與位置。

@@ -1,0 +1,22 @@
+{
+    "name": "DatabaseTools.Editor.Tests",
+    "rootNamespace": "",
+    "references": [
+        "GUID:0acc523941302664db1f4e527237feb3",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:93d5fdf7b44c32549952d63150190bb7"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

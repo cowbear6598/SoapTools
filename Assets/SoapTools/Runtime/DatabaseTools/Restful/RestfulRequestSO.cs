@@ -23,7 +23,7 @@ namespace DatabaseTools.Runtime
         }
     }
 
-    [CreateAssetMenu(fileName = "DB_Request", menuName = "DB/Request")]
+    [CreateAssetMenu(fileName = "RestfulRequest", menuName = "Soap/Database/RestfulRequest")]
     public class RestfulRequestSO : ScriptableObject
     {
         public Method           method;

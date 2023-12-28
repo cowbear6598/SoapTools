@@ -2,7 +2,7 @@
 
 namespace SoapTools.Database
 {
-    [CreateAssetMenu(fileName = "DB_GraphQLRequest", menuName = "DB/GraphQLRequest")]
+    [CreateAssetMenu(fileName = "GraphQLRequest", menuName = "Soap/Database/GraphQLRequest")]
     public class GraphQLRequestSO : ScriptableObject
     {
         public string    url;

@@ -13,7 +13,7 @@ namespace DatabaseTools.Tests.Editor
         [Test]
         public async Task Should_Request_Simple_Get_Success_From_SO()
         {
-            var requestSO = Resources.Load<RestfulRequestSO>("Restful/01_Test");
+            var requestSO = Resources.Load<RestfulRequestSO>("Restful/Get");
             var responseData = await new RestfulBuilder()
                                      .SetRequestSO(requestSO)
                                      .StartRequest<PostResponseData>();
@@ -51,7 +51,7 @@ namespace DatabaseTools.Tests.Editor
         [Test]
         public async Task Should_Request_Simple_Post_Success_From_SO()
         {
-            var requestSO   = Resources.Load<RestfulRequestSO>("Restful/02_Test");
+            var requestSO   = Resources.Load<RestfulRequestSO>("Restful/Post");
             var requestData = new PostRequestData("foo", "bar", 1);
 
             var responseData = await new RestfulBuilder()

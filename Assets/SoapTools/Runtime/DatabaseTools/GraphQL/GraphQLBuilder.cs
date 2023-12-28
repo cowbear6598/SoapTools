@@ -9,8 +9,8 @@ namespace SoapTools.Database
 {
     public class GraphQLBuilder : IGraphQLBuilder
     {
-        private UnityWebRequest req;
         private Operation       operation = Operation.query;
+        private UnityWebRequest req;
 
         public GraphQLBuilder()
         {
@@ -73,7 +73,7 @@ namespace SoapTools.Database
         }
 
         /// <summary>
-        /// 開始呼叫 API，若失敗則會拋出例外
+        ///     開始呼叫 API，若失敗則會拋出例外
         /// </summary>
         public async UniTask<TResponseData> StartRequest<TResponseData>()
         {
@@ -91,7 +91,17 @@ namespace SoapTools.Database
             var withoutNewLines          = Regex.Replace(escapedContent, @"\r\n?|\n", " ");
             var withoutUnnecessarySpaces = Regex.Replace(withoutNewLines, @"\s+", " ");
 
-            var jsonData = "{\"" + operation + "\":\"" + withoutUnnecessarySpaces + "\"}";
+            var jsonData = "";
+
+            switch (operation)
+            {
+                case Operation.query:
+                    jsonData = "{\"query\":\"" + withoutUnnecessarySpaces + "\"}";
+                    break;
+                case Operation.mutation:
+                    jsonData = "{\"query\": \"mutation" + withoutUnnecessarySpaces + "\"}";
+                    break;
+            }
 
             return Encoding.UTF8.GetBytes(jsonData);
         }

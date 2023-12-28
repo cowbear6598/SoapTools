@@ -13,7 +13,7 @@ namespace DatabaseTools.Tests.Editor
         [Test]
         public async Task Should_Query_Success_From_SO()
         {
-            var requestSO = Resources.Load<GraphQLRequestSO>("GraphQL/01_Test");
+            var requestSO = Resources.Load<GraphQLRequestSO>("GraphQL/Query");
             var req = new GraphQLBuilder()
                       .SetRequestSO(requestSO)
                       .Build();
@@ -40,6 +40,19 @@ namespace DatabaseTools.Tests.Editor
             var data = JsonUtility.FromJson<GraphQLResponseData>(response.downloadHandler.text).data;
 
             ResponseDataShouldCorrect(data);
+        }
+
+        [Test]
+        public async Task Should_Mutation_Success_From_SO()
+        {
+            var requestSO = Resources.Load<GraphQLRequestSO>("GraphQL/Mutation");
+            var req = new GraphQLBuilder()
+                      .SetRequestSO(requestSO)
+                      .Build();
+
+            var response = await req.SendWebRequest();
+
+            Debug.Log(response.downloadHandler.text);
         }
 
         private static void ResponseDataShouldCorrect(UserResponseData data)

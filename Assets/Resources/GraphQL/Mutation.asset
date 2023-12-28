@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83a5ca24ef914729b3bdf7c88817b87e, type: 3}
-  m_Name: 01_Test
+  m_Name: Mutation
   m_EditorClassIdentifier: 
   url: https://api.mocki.io/v2/c4d7a195/graphql
-  operation: 0
+  operation: 1
   timeout: 30
-  content: "{\r\n  users  {\r\n        id\r\n        email\r\n        name\r\n   
-    }\r\n}"
+  content: "{\nupdateTodo(\r\n    input: { id: \"Hello World\", done: true }\r\n 
+    ) {\r\n    id\r\n    done\r\n  }\n}"

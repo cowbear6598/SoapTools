@@ -57,6 +57,23 @@ namespace DatabaseTools.Tests.Editor
             MutationResponseShouldCorrect(data);
         }
 
+        [Test]
+        public async Task Should_Mutation_Success_From_Build()
+        {
+            var req = new GraphQLBuilder()
+                      .SetUrl("https://api.mocki.io/v2/c4d7a195/graphql")
+                      .SetTimeout(30)
+                      .SetOperation(Operation.mutation)
+                      .SetContent("{ updateTodo(input: { id: \"Hello World\", done: false }) {id done}}")
+                      .Build();
+
+            var response = await req.SendWebRequest();
+
+            var data = JsonUtility.FromJson<GraphQLMutationResponseData>(response.downloadHandler.text).data;
+
+            MutationResponseShouldCorrect(data);
+        }
+
         private static void MutationResponseShouldCorrect(TodoResponseData data)
         {
             Assert.AreEqual("Hello World", data.updateTodo.id);

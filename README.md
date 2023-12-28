@@ -43,12 +43,22 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
 ### Restful
 
 - ScriptableObject
-![](https://github.com/cowbear6598/SoapTools/blob/main/Screenshots/RestfulSO.png)
+  ![](https://github.com/cowbear6598/SoapTools/blob/main/Screenshots/RestfulSO.png)
+
+- RestfulBuilder
+    - SetRequestSO(RestfulRequestSO requestSO) - 設定 ScriptableObject。
+    - SetMethod(RestfulMethod method) - 設定方法。
+    - SetBody<TBody>(TBody body) - 設定 Body。
+    - AddQuery(string key, string value) - 增加 Query。
 
 ### GraphQL
 
 - ScriptableObject
-  - 
+  ![](https://github.com/cowbear6598/SoapTools/blob/main/Screenshots/GraphQLSO.png)
+- GraphQLBuilder
+    - SetRequestSO(GraphQLRequestSO requestSO) - 設定 ScriptableObject。
+    - SetOperation(Operation operation) - 設定 query/mutation。
+    - SetContent(string content) - 設定內容。
 
 # 小物件功能
 

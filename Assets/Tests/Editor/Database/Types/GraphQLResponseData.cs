@@ -7,4 +7,10 @@ namespace DatabaseTools.Tests.Editor.Types
     {
         public UserResponseData data;
     }
+
+    [Serializable]
+    public class GraphQLMutationResponseData
+    {
+        public TodoResponseData data;
+    }
 }

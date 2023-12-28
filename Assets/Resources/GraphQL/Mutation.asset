@@ -15,5 +15,5 @@ MonoBehaviour:
   url: https://api.mocki.io/v2/c4d7a195/graphql
   operation: 1
   timeout: 30
-  content: "{\nupdateTodo(\r\n    input: { id: \"Hello World\", done: true }\r\n 
+  content: "{\nupdateTodo(\r\n    input: { id: \"Hello World\", done: false }\r\n 
     ) {\r\n    id\r\n    done\r\n  }\n}"

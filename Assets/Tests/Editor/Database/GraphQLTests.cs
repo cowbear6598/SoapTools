@@ -22,7 +22,7 @@ namespace DatabaseTools.Tests.Editor
 
             var data = JsonUtility.FromJson<GraphQLResponseData>(response.downloadHandler.text).data;
 
-            ResponseDataShouldCorrect(data);
+            QueryResponseDataShouldCorrect(data);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace DatabaseTools.Tests.Editor
 
             var data = JsonUtility.FromJson<GraphQLResponseData>(response.downloadHandler.text).data;
 
-            ResponseDataShouldCorrect(data);
+            QueryResponseDataShouldCorrect(data);
         }
 
         [Test]
@@ -52,10 +52,17 @@ namespace DatabaseTools.Tests.Editor
 
             var response = await req.SendWebRequest();
 
-            Debug.Log(response.downloadHandler.text);
+            var data = JsonUtility.FromJson<GraphQLMutationResponseData>(response.downloadHandler.text).data;
+
+            MutationResponseShouldCorrect(data);
         }
 
-        private static void ResponseDataShouldCorrect(UserResponseData data)
+        private static void MutationResponseShouldCorrect(TodoResponseData data)
+        {
+            Assert.AreEqual("Hello World", data.updateTodo.id);
+        }
+
+        private static void QueryResponseDataShouldCorrect(UserResponseData data)
         {
             Assert.AreEqual(2, data.users.Count);
             Assert.AreEqual("Hello World", data.users[0].name);

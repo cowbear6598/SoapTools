@@ -73,7 +73,7 @@ namespace SoapTools.Database
         }
 
         /// <summary>
-        ///     開始呼叫 API，若失敗則會拋出例外
+        /// 開始呼叫 API，若失敗則會拋出例外
         /// </summary>
         public async UniTask<TResponseData> StartRequest<TResponseData>()
         {

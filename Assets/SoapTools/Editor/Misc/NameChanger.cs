@@ -13,19 +13,19 @@ namespace SoapTools.Editor
         private static void ShowWindow()
         {
             var window = GetWindow<NameChanger>();
-            window.titleContent = new GUIContent("Setting");
+            window.titleContent = new GUIContent("物件改名");
             window.Show();
         }
 
         private void OnGUI()
         {
-            EditorGUILayout.LabelField($"Selection Count: {Selection.count}");
+            EditorGUILayout.LabelField($"選擇物件數量: {Selection.count}");
 
-            prefixesName = EditorGUILayout.TextField("Prefixes Name: ", prefixesName);
-            suffixesName = EditorGUILayout.TextField("Suffixes Name: ", suffixesName);
-            startOrder   = EditorGUILayout.IntField("Start Order: ", startOrder);
+            prefixesName = EditorGUILayout.TextField("前墜名稱: ", prefixesName);
+            suffixesName = EditorGUILayout.TextField("後墜名稱: ", suffixesName);
+            startOrder   = EditorGUILayout.IntField("起始編號: ", startOrder);
 
-            if (GUILayout.Button("Change"))
+            if (GUILayout.Button("更改"))
             {
                 Change();
             }

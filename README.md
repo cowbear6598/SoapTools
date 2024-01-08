@@ -29,6 +29,11 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
 - Open Soap => 物件改名
 - 選擇同樣階層的物件們，給他前墜與後墜以及起始編號，就可以一次改完所有物件的名稱。
 
+## 更改 Sprite Order
+
+- Open Soap => 設定 Sprite Order
+- 偵測物件的 y 軸，並且依照 y 軸的大小以及間距來設定 Sprite Order。
+
 ## 資料庫
 
 - 分別為 Restful 以及 GraphQL。

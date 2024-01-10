@@ -34,6 +34,17 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
 - Open Soap => 設定 Sprite Order
 - 偵測物件的 y 軸，並且依照 y 軸的大小以及間距來設定 Sprite Order。
 
+## 2D 自適應
+
+- AutoResolutionRect2D.cs，藉由更改 Camera 的 Rect 來達到自適應的效果。
+- 實現與邏輯是源自 [此處](http://gamedesigntheory.blogspot.com/2010/09/controlling-aspect-ratio-in-unity.html)。
+- 程式碼的攝影機目前是抓由 Camera.main 來取得，可以自行修改，如有需要可以自行複製程式碼更改。
+- 由於是更改攝影機的 Rect，所以勢必需要增加一個低效能的攝影機來處理背景或者想直接留黑也可以，看個人需求。
+
+## UI 自適應
+
+- CanvasResolutionHandler.cs 放在有 CanvasScaler 的物件上，可以自動調整要以寬或高為基準保持 UI 大小與位置。
+
 ## 資料庫
 
 - 分別為 Restful 以及 GraphQL。
@@ -64,7 +75,3 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
     - SetRequestSO(GraphQLRequestSO requestSO) - 設定 ScriptableObject。
     - SetOperation(Operation operation) - 設定 query/mutation。
     - SetContent(string content) - 設定內容。
-
-# 小物件功能
-
-- CanvasResolutionHandler.cs 放在有 CanvasScaler 的物件上，可以自動調整要以寬或高為基準保持 UI 大小與位置。

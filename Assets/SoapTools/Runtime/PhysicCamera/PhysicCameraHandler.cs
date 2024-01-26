@@ -10,7 +10,7 @@ namespace SoapTools.PhysicCamera
         /// <summary>
         /// 啟用相機，並返回 Texture 與自適應等設定
         /// </summary>
-        public WebCamResult EnableCamera()
+        public WebCamResult EnableCamera(string deviceName = "")
         {
             if (webCamTexture != null)
             {
@@ -18,9 +18,12 @@ namespace SoapTools.PhysicCamera
                 return CreateAspect();
             }
 
-            var device = WebCamTexture.devices.First();
+            var device = deviceName;
 
-            webCamTexture = new WebCamTexture(device.name, Screen.width, Screen.height);
+            if (string.IsNullOrEmpty(device))
+                device = WebCamTexture.devices.First().name;
+
+            webCamTexture = new WebCamTexture(device, Screen.width, Screen.height);
 
             webCamTexture.Play();
 

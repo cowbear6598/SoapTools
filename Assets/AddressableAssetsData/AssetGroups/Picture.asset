@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Picture
+  m_EditorClassIdentifier: 
+  m_GroupName: Picture
+  m_Data:
+    m_SerializedData: []
+  m_GUID: eb49a9eec2988e945a660ee5ef6cb355
+  m_SerializeEntries:
+  - m_GUID: 39db9885ec54f5a4a9912fc89e35d6d7
+    m_Address: Assets/Arts/Pictures/TestPicture3.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - picture
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7a7cfc69255bba4ba632b4a4d0f9847
+    m_Address: Assets/Arts/Pictures/TestPicture2.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - picture
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a1aba2edfe6c60429c4c97c9394ef11
+    m_Address: Assets/Arts/Pictures/TestPicture.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - picture
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: cc679da6d1a95fd4699e7746be6318eb, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 2e54807eee43a9c4890b75545c1c8e88, type: 2}
+    - {fileID: 11400000, guid: 868531cb4d418ea4ba4d99234229adf8, type: 2}

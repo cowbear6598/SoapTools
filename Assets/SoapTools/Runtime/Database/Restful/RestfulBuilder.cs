@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace SoapTools.Database
+namespace Test.Editor.Database.Database
 {
     public class RestfulBuilder : IRestfulBuilder
     {

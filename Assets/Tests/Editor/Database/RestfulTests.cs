@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using SoapTools.Database;
-using SoapTools.Database.Tests.Editor.Types;
+using Test.Editor.Database;
+using Test.Editor.Database.Database;
 using UnityEngine;
 
-namespace SoapTools.Database.Tests.Editor
+namespace Test.Editor.Database
 {
     [TestFixture]
     public class RestfulTests
@@ -35,7 +35,6 @@ namespace SoapTools.Database.Tests.Editor
                                      .SetMethod(Method.GET)
                                      .SetTimeout(10)
                                      .StartRequest<PostResponseData>();
-
 
             var expectedData = new PostResponseData {
                 userId    = 1,

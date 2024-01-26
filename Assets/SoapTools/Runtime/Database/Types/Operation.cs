@@ -1,4 +1,4 @@
-﻿namespace SoapTools.Database
+﻿namespace Test.Editor.Database.Database
 {
     public enum Operation
     {

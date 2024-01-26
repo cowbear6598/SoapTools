@@ -1,7 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine.Networking;
 
-namespace SoapTools.Database
+namespace Test.Editor.Database.Database
 {
     public interface IRestfulBuilder
     {

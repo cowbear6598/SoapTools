@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace SoapTools.Editor
+namespace Test.Editor.Database.Editor
 {
     public class SpriteOrderAutoDetector : EditorWindow
     {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace SoapTools.Database
+namespace Test.Editor.Database.Database
 {
     [Serializable]
     public class RequestHeaders

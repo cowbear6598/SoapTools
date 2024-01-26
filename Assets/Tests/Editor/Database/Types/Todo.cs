@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SoapTools.Database.Tests.Editor.Types
+namespace Test.Editor.Database
 {
     [Serializable]
     public class TodoResponseData

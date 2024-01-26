@@ -1,9 +1,15 @@
 # Document
 
-- 自己在開發時基本上都會用到的工具或功能，基本上得依賴於 DI 架構，例如：Zenject、VContainer。
+- 自己在開發時基本上都會用到的工具或功能。
+- 依賴：
+    - UniRx
+    - UniTask
+    - PrimeTween
+    - Addressable
 
 # Install
 
+- Install [PrimeTween](https://github.com/KyryloKuzyk/PrimeTween)
 - Open Edit => Porject Settings => Package Manager
 - Add a new Scoped Registry
 
@@ -54,6 +60,8 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
     - scale - 縮放比例，調整 RawImage 的 Y 軸。
 - DisableCamera() 關閉相機。
 - PauseCamera() 暫停相機。
+
+## Addressable (W.I.P)
 
 ## 資料庫
 

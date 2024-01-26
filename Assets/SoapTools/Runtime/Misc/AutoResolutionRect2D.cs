@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace SoapUtils.Misc
+namespace SoapTools.Misc
 {
     public class AutoResolutionRect2D : MonoBehaviour
     {

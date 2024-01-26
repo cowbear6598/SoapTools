@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DatabaseTools.Tests.Editor.Types
+namespace SoapTools.Database.Tests.Editor.Types
 {
     [Serializable]
     public struct PostRequestData

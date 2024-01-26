@@ -45,6 +45,16 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
 
 - CanvasResolutionHandler.cs 放在有 CanvasScaler 的物件上，可以自動調整要以寬或高為基準保持 UI 大小與位置。
 
+## Web Camera
+
+- PhysicCameraHandler.cs 使用 EnableCamera() 來開啟相機，並會回傳自適應相關內容，詳請可看 PhysicCamera 場景示範。
+    - webCamTexture - 相機的 Texture。
+    - aspect - 相機的比例，搭配 AspectRatioFitter 使用。
+    - rotation - 旋轉角度，調整 RawImage 的 Z 軸。
+    - scale - 縮放比例，調整 RawImage 的 Y 軸。
+- DisableCamera() 關閉相機。
+- PauseCamera() 暫停相機。
+
 ## 資料庫
 
 - 分別為 Restful 以及 GraphQL。

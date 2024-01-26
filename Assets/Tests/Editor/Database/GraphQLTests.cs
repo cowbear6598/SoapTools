@@ -1,11 +1,11 @@
 ﻿using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
-using DatabaseTools.Tests.Editor.Types;
 using NUnit.Framework;
 using SoapTools.Database;
+using SoapTools.Database.Tests.Editor.Types;
 using UnityEngine;
 
-namespace DatabaseTools.Tests.Editor
+namespace SoapTools.Database.Tests.Editor
 {
     [TestFixture]
     public class GraphQLTests

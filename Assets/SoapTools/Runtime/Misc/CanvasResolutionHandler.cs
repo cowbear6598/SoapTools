@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace SoapUtils.Misc
+namespace SoapTools.Misc
 {
     public class CanvasResolutionHandler : MonoBehaviour
     {

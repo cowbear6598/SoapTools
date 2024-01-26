@@ -1,9 +1,8 @@
 ﻿using System;
-using SoapTools.Database;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace DatabaseTools.Runtime
+namespace SoapTools.Database
 {
     [Serializable]
     public class RequestHeaders

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DatabaseTools.Tests.Editor.Types
+namespace SoapTools.Database.Tests.Editor.Types
 {
     [Serializable]
     public class UserResponseData

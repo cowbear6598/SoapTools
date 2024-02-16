@@ -1,4 +1,5 @@
-﻿using Test.Editor.Database.PhysicCamera;
+﻿using System;
+using Test.Editor.Database.PhysicCamera;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,13 +14,21 @@ namespace WebCam
 
         public void Button_Enable()
         {
-            var result = physicCameraHandler.EnableCamera();
+            physicCameraHandler.EnableCamera();
 
-            webCamImg.texture                        = result.webCamTexture;
-            webCamImg.rectTransform.localEulerAngles = new Vector3(0, 0, result.rotation);
-            webCamImg.rectTransform.localScale       = new Vector3(1, result.scale, 1);
+            webCamImg.texture = physicCameraHandler.GetWebCamTexture();
+        }
 
-            webCamAspectRatioFitter.aspectRatio = result.aspect;
+        private void Update()
+        {
+            if (webCamImg.texture == null)
+                return;
+
+            var correctInfo = physicCameraHandler.GetWebCamCorrectInfo();
+
+            webCamAspectRatioFitter.aspectRatio      = correctInfo.aspect;
+            webCamImg.rectTransform.localEulerAngles = new Vector3(0, 0, correctInfo.rotation);
+            webCamImg.rectTransform.localScale       = new Vector3(1, correctInfo.scale, 1);
         }
 
         public void Button_Disable()

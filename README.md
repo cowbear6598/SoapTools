@@ -53,11 +53,9 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
 
 ## Web Camera
 
-- PhysicCameraHandler.cs 使用 EnableCamera() 來開啟相機，並會回傳自適應相關內容，詳請可看 PhysicCamera 場景示範。
-    - webCamTexture - 相機的 Texture。
-    - aspect - 相機的比例，搭配 AspectRatioFitter 使用。
-    - rotation - 旋轉角度，調整 RawImage 的 Z 軸。
-    - scale - 縮放比例，調整 RawImage 的 Y 軸。
+- PhysicCameraHandler.cs 使用 EnableCamera() 來開啟後相機。
+- GetWebCamTexture() 可以取得相機的 Texture。
+- GetWetCamCorrectInfo() 可以取得相機的 aspect、rotation、scale 等資訊來矯正顯示問題，實際使用方法可以參考 UI_WebCam.cs。
 - DisableCamera() 關閉相機。
 - PauseCamera() 暫停相機。
 

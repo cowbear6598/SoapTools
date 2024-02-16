@@ -8,13 +8,19 @@ namespace Tests.Editor.Popup
     [TestFixture]
     public class PopupTests
     {
-        private PopupView popupView;
-
         [SetUp]
         public void Setup()
         {
             popupView = Object.Instantiate(Resources.Load<GameObject>("PopupView")).GetComponent<PopupView>();
         }
+
+        [TearDown]
+        public void TearDown()
+        {
+            Object.DestroyImmediate(popupView.gameObject);
+        }
+
+        private PopupView popupView;
 
         [Test]
         public void Test_Set_Content_Success()
@@ -61,12 +67,6 @@ namespace Tests.Editor.Popup
         {
             var cancelBtn = GameObject.Find("CancelBtn");
             Assert.AreEqual(IsActive, cancelBtn.activeSelf);
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            Object.DestroyImmediate(popupView.gameObject);
         }
     }
 }

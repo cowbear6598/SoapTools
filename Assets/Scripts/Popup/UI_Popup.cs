@@ -2,35 +2,31 @@
 using Cysharp.Threading.Tasks;
 using SoapTools.Popup;
 using UnityEngine;
+using VContainer;
 
 namespace Popup
 {
     public class UI_Popup : MonoBehaviour
     {
-        private PopupView view;
-
-        private void Awake()
-        {
-            view = FindFirstObjectByType<PopupView>();
-        }
+        [Inject] private IPopupService popupService;
 
         public async void Button_OnlyContent()
         {
-            view.SetContent("OnlyContent");
+            popupService.Show("OnlyContent");
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
 
-            view.SetAppear(false);
+            popupService.Close();
         }
 
         public void Button_ContentWithConfirm()
         {
-            view.SetContent("ContentWithConfirm", () => Debug.Log("Confirm"));
+            popupService.Show("ContentWithConfirm", () => Debug.Log("Confirm"));
         }
 
         public void Button_ContentWithAll()
         {
-            view.SetContent("ContentWithAll", () => Debug.Log("Confirm"), () => Debug.Log("Cancel"));
+            popupService.Show("ContentWithAll", () => Debug.Log("Confirm"), () => Debug.Log("Cancel"));
         }
     }
 }

@@ -5,7 +5,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Test.Editor.Database.Database
+namespace SoapTools.Database
 {
     public class GraphQLBuilder : IGraphQLBuilder
     {
@@ -21,14 +21,14 @@ namespace Test.Editor.Database.Database
             req.SetRequestHeader("content-type", "application/json");
         }
 
-        public IGraphQLBuilder SetRequestSO(GraphQLRequestSO requestSo)
+        public IGraphQLBuilder SetRequestSO(GraphQLRequestScriptableObject requestScriptableObject)
         {
-            req.url     = requestSo.url;
-            req.timeout = requestSo.timeout;
+            req.url     = requestScriptableObject.url;
+            req.timeout = requestScriptableObject.timeout;
 
-            operation = requestSo.operation;
+            operation = requestScriptableObject.operation;
 
-            var jsonRaw = MakeGraphQLContent(requestSo.content);
+            var jsonRaw = MakeGraphQLContent(requestScriptableObject.content);
 
             req.uploadHandler = new UploadHandlerRaw(jsonRaw);
 

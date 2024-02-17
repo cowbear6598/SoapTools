@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Test.Editor.Database.Database
+namespace SoapTools.Database
 {
     [Serializable]
     public struct GraphQLRequest

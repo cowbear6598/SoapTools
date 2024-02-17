@@ -1,4 +1,4 @@
-﻿namespace SoapTools.Runtime.SceneTransition
+﻿namespace SoapTools.SceneTransition
 {
     public class SceneService
     {

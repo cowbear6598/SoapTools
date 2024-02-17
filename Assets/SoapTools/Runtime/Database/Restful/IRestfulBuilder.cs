@@ -1,11 +1,11 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine.Networking;
 
-namespace Test.Editor.Database.Database
+namespace SoapTools.Database
 {
     public interface IRestfulBuilder
     {
-        IRestfulBuilder SetRequestSO(RestfulRequestSO requestSo);
+        IRestfulBuilder SetRequestSO(RestfulRequestScriptableObject requestScriptableObject);
         IRestfulBuilder SetUrl(string url);
         IRestfulBuilder SetMethod(Method method);
         IRestfulBuilder SetTimeout(int timeout);

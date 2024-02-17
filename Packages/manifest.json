@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "jp.hadashikick.vcontainer": "1.14.0",
     "com.cysharp.unitask": "2.5.0",
     "com.kyrylokuzyk.primetween": "file:../Assets/Plugins/PrimeTween/internal/com.kyrylokuzyk.primetween.tgz",
     "com.neuecc.unirx": "7.1.0",
@@ -49,7 +50,8 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.cysharp.unitask",
-        "com.neuecc.unirx"
+        "com.neuecc.unirx",
+        "jp.hadashikick.vcontainer"
       ]
     }
   ]

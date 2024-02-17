@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Test.Editor.Database.Database
+namespace SoapTools.Database
 {
     [Serializable]
     public class RequestHeaders
@@ -23,7 +23,7 @@ namespace Test.Editor.Database.Database
     }
 
     [CreateAssetMenu(fileName = "RestfulRequest", menuName = "Soap/Database/RestfulRequest")]
-    public class RestfulRequestSO : ScriptableObject
+    public class RestfulRequestScriptableObject : ScriptableObject
     {
         public Method           method;
         public string           domain;

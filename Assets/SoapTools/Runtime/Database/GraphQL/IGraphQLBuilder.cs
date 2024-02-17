@@ -1,11 +1,11 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine.Networking;
 
-namespace Test.Editor.Database.Database
+namespace SoapTools.Database
 {
     public interface IGraphQLBuilder
     {
-        IGraphQLBuilder SetRequestSO(GraphQLRequestSO requestSo);
+        IGraphQLBuilder SetRequestSO(GraphQLRequestScriptableObject requestScriptableObject);
         IGraphQLBuilder SetUrl(string url);
         IGraphQLBuilder SetOperation(Operation operation);
         IGraphQLBuilder SetTimeout(int timeout);

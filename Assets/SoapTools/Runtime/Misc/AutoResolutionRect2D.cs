@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace Test.Editor.Database.Misc
+namespace SoapTools.Misc
 {
     public class AutoResolutionRect2D : MonoBehaviour
     {

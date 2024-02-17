@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SoapTools.Runtime.SceneTransition
+namespace SoapTools.SceneTransition
 {
     public class SceneView : MonoBehaviour
     {

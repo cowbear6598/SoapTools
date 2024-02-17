@@ -2,6 +2,7 @@
 
 - 自己在開發時基本上都會用到的工具或功能。
 - 依賴：
+    - VContainer
     - UniRx
     - UniTask
     - PrimeTween
@@ -19,6 +20,7 @@ URL: https://package.openupm.com
 Scope(s): 
          com.cysharp.unitask
          com.neuecc.unirx
+         jp.hadashikick.vcontainer
 ```
 
 - Open Window => Package Manager
@@ -62,7 +64,6 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
 ## Popup
 
 - 可以看 Popup 場景示範。
-- 如果有用 DI 可以直接綁定 IPopupService、PopupService 來使用。
 - IPopupService.cs
     - SetContent(string content, Action confirmBtn, Action cancelBtn) - 設定內容。
     - Close() - 關閉。

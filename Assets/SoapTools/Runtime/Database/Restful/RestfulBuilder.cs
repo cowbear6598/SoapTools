@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace Test.Editor.Database.Database
+namespace SoapTools.Database
 {
     public class RestfulBuilder : IRestfulBuilder
     {
@@ -16,12 +16,12 @@ namespace Test.Editor.Database.Database
             req.downloadHandler = new DownloadHandlerBuffer();
         }
 
-        public IRestfulBuilder SetRequestSO(RestfulRequestSO requestSo)
+        public IRestfulBuilder SetRequestSO(RestfulRequestScriptableObject requestScriptableObject)
         {
-            req.url     = requestSo.url;
-            req.method  = requestSo.method.ToString();
-            req.timeout = requestSo.timeout;
-            requestSo.SetRequestHeaders(req);
+            req.url     = requestScriptableObject.url;
+            req.method  = requestScriptableObject.method.ToString();
+            req.timeout = requestScriptableObject.timeout;
+            requestScriptableObject.SetRequestHeaders(req);
 
             return this;
         }

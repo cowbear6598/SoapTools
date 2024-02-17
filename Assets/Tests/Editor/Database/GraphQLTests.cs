@@ -2,7 +2,7 @@
 using Cysharp.Threading.Tasks;
 using NUnit.Framework;
 using Test.Editor.Database;
-using Test.Editor.Database.Database;
+using SoapTools.Database;
 using UnityEngine;
 
 namespace Test.Editor.Database
@@ -13,7 +13,7 @@ namespace Test.Editor.Database
         [Test]
         public async Task Should_Query_Success_From_SO()
         {
-            var requestSO = Resources.Load<GraphQLRequestSO>("GraphQL/Query");
+            var requestSO = Resources.Load<GraphQLRequestScriptableObject>("GraphQL/Query");
             var req = new GraphQLBuilder()
                       .SetRequestSO(requestSO)
                       .Build();
@@ -45,7 +45,7 @@ namespace Test.Editor.Database
         [Test]
         public async Task Should_Mutation_Success_From_SO()
         {
-            var requestSO = Resources.Load<GraphQLRequestSO>("GraphQL/Mutation");
+            var requestSO = Resources.Load<GraphQLRequestScriptableObject>("GraphQL/Mutation");
             var req = new GraphQLBuilder()
                       .SetRequestSO(requestSO)
                       .Build();

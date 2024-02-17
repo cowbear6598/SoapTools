@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Test.Editor.Database.PhysicCamera
+namespace SoapTools.PhysicCamera
 {
     public class PhysicCameraHandler
     {

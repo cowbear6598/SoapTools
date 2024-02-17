@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Test.Editor.Database.Database
+namespace SoapTools.Database
 {
     [CreateAssetMenu(fileName = "GraphQLRequest", menuName = "Soap/Database/GraphQLRequest")]
-    public class GraphQLRequestSO : ScriptableObject
+    public class GraphQLRequestScriptableObject : ScriptableObject
     {
         public string    url;
         public Operation operation;

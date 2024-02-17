@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
 using Test.Editor.Database;
-using Test.Editor.Database.Database;
+using SoapTools.Database;
 using UnityEngine;
 
 namespace Test.Editor.Database
@@ -12,7 +12,7 @@ namespace Test.Editor.Database
         [Test]
         public async Task Should_Request_Simple_Get_Success_From_SO()
         {
-            var requestSO = Resources.Load<RestfulRequestSO>("Restful/Get");
+            var requestSO = Resources.Load<RestfulRequestScriptableObject>("Restful/Get");
             var responseData = await new RestfulBuilder()
                                      .SetRequestSO(requestSO)
                                      .StartRequest<PostResponseData>();
@@ -49,7 +49,7 @@ namespace Test.Editor.Database
         [Test]
         public async Task Should_Request_Simple_Post_Success_From_SO()
         {
-            var requestSO   = Resources.Load<RestfulRequestSO>("Restful/Post");
+            var requestSO   = Resources.Load<RestfulRequestScriptableObject>("Restful/Post");
             var requestData = new PostRequestData("foo", "bar", 1);
 
             var responseData = await new RestfulBuilder()

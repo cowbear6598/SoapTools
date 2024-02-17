@@ -1,4 +1,4 @@
-﻿namespace Test.Editor.Database.Database
+﻿namespace SoapTools.Database
 {
     public enum Header
     {

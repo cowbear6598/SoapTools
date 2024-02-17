@@ -1,15 +1,11 @@
 ﻿using System;
+using VContainer;
 
 namespace SoapTools.Popup
 {
     public class PopupService : IPopupService
     {
-        private readonly PopupView view;
-
-        public PopupService(PopupView view)
-        {
-            this.view = view;
-        }
+        [Inject] private readonly PopupView view;
 
         public void Show(string content, Action confirm = null, Action cancel = null)
             => view.SetContent(content, confirm, cancel);

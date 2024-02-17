@@ -1,6 +1,9 @@
-﻿namespace SoapTools.Runtime.SceneTransition
+﻿using UnityEngine;
+
+namespace SoapTools.SceneTransition
 {
-    public class SceneScriptableObject
+    [CreateAssetMenu(fileName = "SceneData", menuName = "Soap/Scene/SceneData")]
+    public class SceneScriptableObject : ScriptableObject
     {
         
     }

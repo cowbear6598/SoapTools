@@ -11,7 +11,7 @@
 # Install
 
 - Install [PrimeTween](https://github.com/KyryloKuzyk/PrimeTween)
-- Open Edit => Porject Settings => Package Manager
+- Open Edit => Project Settings => Package Manager
 - Add a new Scoped Registry
 
 ```
@@ -100,3 +100,7 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
     - SetRequestSO(GraphQLRequestSO requestSO) - 設定 ScriptableObject。
     - SetOperation(Operation operation) - 設定 query/mutation。
     - SetContent(string content) - 設定內容。
+
+## 場景轉換 (Preview)
+
+- 目前只做了非常簡易的淡入淡出場景轉換，可以參考 SceneTransition 場景使用。

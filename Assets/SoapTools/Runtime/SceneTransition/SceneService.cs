@@ -1,7 +1,12 @@
-﻿namespace SoapTools.SceneTransition
+﻿using VContainer;
+
+namespace SoapTools.SceneTransition
 {
-    public class SceneService
+    public class SceneService : ISceneService
     {
-        
+        [Inject] private readonly SceneLoadHandler loadHandler;
+
+        public void LoadScene(int sceneIndex, bool IsFadeOut = true) => loadHandler.LoadScene(sceneIndex, IsFadeOut);
+        public void FadeOut() => loadHandler.FadeOut();
     }
 }

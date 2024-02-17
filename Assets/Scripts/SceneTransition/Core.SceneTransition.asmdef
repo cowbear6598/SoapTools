@@ -1,12 +1,9 @@
 {
-    "name": "SoapTools.SceneTransition",
+    "name": "Core.SceneTransition",
     "rootNamespace": "",
     "references": [
         "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
-        "GUID:84651a3751eca9349aac36a66bba901b",
-        "GUID:9e24947de15b9834991c9d8411ea37cf",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:80ecb87cae9c44d19824e70ea7229748"
+        "GUID:300d5d73270197e4c9764aa64b27c31b"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

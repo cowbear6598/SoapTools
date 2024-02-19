@@ -7,6 +7,7 @@
     - UniTask
     - PrimeTween
     - Addressable
+    - [MEC (More Effective Coroutines)](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975)
 
 # Install
 
@@ -68,7 +69,9 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
     - SetContent(string content, Action confirmBtn, Action cancelBtn) - 設定內容。
     - Close() - 關閉。
 
-## Addressable (W.I.P)
+## Addressable (Preview)
+
+- 目前只有簡易的下載與熱更新。
 
 ## 資料庫
 

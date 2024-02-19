@@ -23,12 +23,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - picture
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f7a7cfc69255bba4ba632b4a4d0f9847
-    m_Address: TestPicture2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - picture
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a1aba2edfe6c60429c4c97c9394ef11
     m_Address: TestPicture
     m_ReadOnly: 0

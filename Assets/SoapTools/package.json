@@ -10,7 +10,8 @@
     "com.cysharp.unitask": "2.5.0",
     "com.unity.test-framework": "1.4.2",
     "com.unity.addressables": "1.21.19",
-    "jp.hadashikick.vcontainer": "1.14.0"
+    "jp.hadashikick.vcontainer": "1.14.0",
+    "com.cysharp.messagepipe": "1.7.4"
   },
   "author": {
     "name": "Soap",

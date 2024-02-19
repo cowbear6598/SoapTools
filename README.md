@@ -1,10 +1,11 @@
 # Document
 
-- 自己在開發時基本上都會用到的工具或功能。
+- 自己在開發時基本上都會用到的工具或功能（一堆都是 Cysharp 的）。
 - 依賴：
     - VContainer
     - UniRx
     - UniTask
+    - MessagePipe
     - PrimeTween
     - Addressable
     - [MEC (More Effective Coroutines)](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975)
@@ -22,6 +23,7 @@ Scope(s):
          com.cysharp.unitask
          com.neuecc.unirx
          jp.hadashikick.vcontainer
+         com.cysharp.messagepipe
 ```
 
 - Open Window => Package Manager

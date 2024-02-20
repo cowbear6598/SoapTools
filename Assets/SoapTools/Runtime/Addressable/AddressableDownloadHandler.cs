@@ -28,16 +28,19 @@ namespace SoapTools.Addressable
             await Addressables.InitializeAsync();
 
             // --- 檢查資源目錄 ---
-            var checkCatalogHandle = Addressables.CheckForCatalogUpdates();
+            var checkCatalogHandle = Addressables.CheckForCatalogUpdates(false);
 
             await checkCatalogHandle;
 
             if (checkCatalogHandle.Status == AsyncOperationStatus.Failed)
             {
+                Addressables.Release(checkCatalogHandle);
                 throw new Exception("檢查資源目錄失敗");
             }
 
             var catalogs = checkCatalogHandle.Result;
+
+            Addressables.Release(checkCatalogHandle);
 
             if (catalogs.Count == 0)
                 return;

@@ -2,11 +2,11 @@
 
 - 自己在開發時基本上都會用到的工具或功能（一堆都是 Cysharp 的）。
 - 依賴：
-    - VContainer
-    - UniRx
-    - UniTask
-    - MessagePipe
-    - PrimeTween
+    - [VContainer](https://github.com/hadashiA/VContainer)
+    - [UniRx](https://github.com/neuecc/UniRx)
+    - [UniTask](https://github.com/Cysharp/UniTask)
+    - [MessagePipe](https://github.com/Cysharp/MessagePipe)
+    - [PrimeTween](https://github.com/KyryloKuzyk/PrimeTween)
     - Addressable
     - [MEC (More Effective Coroutines)](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975)
 

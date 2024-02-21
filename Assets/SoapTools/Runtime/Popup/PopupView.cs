@@ -12,6 +12,7 @@ namespace SoapTools.Popup
         [SerializeField] private RectTransform bgTrans;
 
         [SerializeField] private TextMeshProUGUI contentText;
+        [SerializeField] private GameObject      buttonGroupObj;
         [SerializeField] private Button          confirmBtn;
         [SerializeField] private Button          cancelBtn;
 
@@ -23,6 +24,8 @@ namespace SoapTools.Popup
         public void SetContent(string content, Action confirmAction = null, Action cancelAction = null)
         {
             contentText.text = content;
+
+            buttonGroupObj.SetActive(confirmAction != null || cancelAction != null);
 
             confirmBtn.gameObject.SetActive(confirmAction != null);
             cancelBtn.gameObject.SetActive(cancelAction   != null);

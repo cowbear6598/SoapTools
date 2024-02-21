@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using NUnit.Framework;
 using SoapTools.Addressable;
 using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,15 +22,13 @@ namespace Addressable
             "picture2",
         };
 
-        private IDisposable progressDisposable;
-
         private void Start()
         {
-            progressDisposable = downloadHandler.SubscribeDownloadProgress(x =>
+            downloadHandler.SubscribeDownloadProgress(x =>
             {
                 downloadProgressImage.fillAmount = x;
                 downloadProgressText.text        = $"Download: {x * 100:F2}%";
-            });
+            }).AddTo(this);
         }
 
         public async void Button_Start()
@@ -39,7 +37,7 @@ namespace Addressable
             {
                 await downloadHandler.Initialize();
 
-                downloadSizeText.text = $"Size: {await downloadHandler.GetDownloadSize(labels)} Mb";
+                downloadSizeText.text = $"Size: {await downloadHandler.GetDownloadSize(labels):F2} Mb";
 
                 downloadHandler.StartDownload(labels, OnAllDownloadComplete, OnDownloadFailed);
             }

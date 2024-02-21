@@ -63,7 +63,7 @@ namespace SoapTools.Addressable
         /// <param name="sizeTag">要轉成甚麼樣的大小格式</param>
         /// <returns>檔案大小</returns>
         /// <exception cref="Exception">取得檔案大小失敗</exception>
-        public async UniTask<string> GetDownloadSize(IList<string> labels, SizeTag sizeTag = SizeTag.MB)
+        public async UniTask<float> GetDownloadSize(IList<string> labels, SizeTag sizeTag = SizeTag.MB)
         {
             long totalSize = 0;
 
@@ -90,7 +90,7 @@ namespace SoapTools.Addressable
                 size /= 1024f;
             }
 
-            return $"{size:F2}";
+            return size;
         }
 
         /// <summary>

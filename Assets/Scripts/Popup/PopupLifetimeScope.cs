@@ -8,7 +8,7 @@ namespace Popup
     {
         protected override void Configure(IContainerBuilder builder)
         {
-            builder.Register<PopupService>(Lifetime.Scoped)
+            builder.Register<PopupService>(Lifetime.Singleton)
                    .AsImplementedInterfaces()
                    .AsSelf();
             builder.RegisterComponentInHierarchy<PopupView>();

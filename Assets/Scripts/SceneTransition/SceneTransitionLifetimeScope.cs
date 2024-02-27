@@ -13,9 +13,9 @@ namespace SceneTransition
         {
             builder.RegisterInstance(sceneScriptableObject);
             builder.RegisterComponentInHierarchy<SceneView>();
-            builder.Register<SceneStateHandler>(Lifetime.Scoped);
-            builder.Register<SceneLoadHandler>(Lifetime.Scoped);
-            builder.Register<SceneService>(Lifetime.Scoped)
+            builder.Register<SceneStateHandler>(Lifetime.Singleton);
+            builder.Register<SceneLoadHandler>(Lifetime.Singleton);
+            builder.Register<SceneService>(Lifetime.Singleton)
                    .AsImplementedInterfaces()
                    .AsSelf();
         }

@@ -1,6 +1,4 @@
 ﻿using Cysharp.Threading.Tasks;
-using UnityEngine.ResourceManagement.AsyncOperations;
-using UnityEngine.ResourceManagement.ResourceProviders;
 using VContainer;
 
 namespace SoapTools.SceneTransition
@@ -13,6 +11,5 @@ namespace SoapTools.SceneTransition
         public UniTask PreLoadScene() => loadHandler.PreLoadScene();
         public UniTask UnloadAllScenes() => loadHandler.UnloadAllScenes();
         public void PostScene() => loadHandler.PostScene();
-        public AsyncOperationHandle<SceneInstance> DequeueSceneInstance() => loadHandler.DequeueSceneInstance();
     }
 }

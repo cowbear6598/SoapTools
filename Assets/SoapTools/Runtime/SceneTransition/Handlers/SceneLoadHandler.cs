@@ -17,26 +17,27 @@ namespace SoapTools.SceneTransition
 
         private Queue<AsyncOperationHandle<SceneInstance>> loadedScenes = new();
 
-        public async void LoadScene(int sceneIndex, bool IsFadeOut = true)
+        public async UniTask LoadScene(int sceneIndex, bool IsFadeOut = true)
         {
             if (!await PreLoadScene())
                 return;
 
             stateHandler.ChangeState(SceneState.Loading);
 
-            Addressables.LoadSceneAsync(sceneScriptableObject.sceneAssets[sceneIndex], LoadSceneMode.Additive).Completed += async (handle) =>
-            {
-                stateHandler.ChangeState(SceneState.Unloading);
+            var handle = Addressables.LoadSceneAsync(sceneScriptableObject.sceneAssets[sceneIndex], LoadSceneMode.Additive);
 
-                await UnloadAllScenes();
+            await handle;
 
-                loadedScenes.Enqueue(handle);
+            stateHandler.ChangeState(SceneState.Unloading);
 
-                stateHandler.ChangeState(SceneState.Complete);
+            await UnloadAllScenes();
 
-                if (IsFadeOut)
-                    PostScene();
-            };
+            loadedScenes.Enqueue(handle);
+
+            stateHandler.ChangeState(SceneState.Complete);
+
+            if (IsFadeOut)
+                PostScene();
         }
 
         public async UniTask UnloadAllScenes()
@@ -73,7 +74,5 @@ namespace SoapTools.SceneTransition
 
             view.SetAppear(false);
         }
-
-        public AsyncOperationHandle<SceneInstance> DequeueSceneInstance() => loadedScenes.Dequeue();
     }
 }

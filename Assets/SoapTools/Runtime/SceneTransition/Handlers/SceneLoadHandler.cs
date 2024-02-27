@@ -15,7 +15,7 @@ namespace SoapTools.SceneTransition
         [Inject] private readonly SceneStateHandler     stateHandler;
         [Inject] private readonly SceneView             view;
 
-        private Queue<AsyncOperationHandle<SceneInstance>> loadedScenes = new();
+        private Queue<SceneInstance> loadedScenes = new();
 
         public async UniTask LoadScene(int sceneIndex, bool IsFadeOut = true)
         {
@@ -24,7 +24,7 @@ namespace SoapTools.SceneTransition
 
             stateHandler.ChangeState(SceneState.Loading);
 
-            var handle = Addressables.LoadSceneAsync(sceneScriptableObject.sceneAssets[sceneIndex], LoadSceneMode.Additive);
+            var handle = Addressables.LoadSceneAsync(sceneScriptableObject.sceneAssets[sceneIndex], LoadSceneMode.Additive).Task;
 
             await handle;
 
@@ -32,7 +32,7 @@ namespace SoapTools.SceneTransition
 
             await UnloadAllScenes();
 
-            loadedScenes.Enqueue(handle);
+            loadedScenes.Enqueue(handle.Result);
 
             stateHandler.ChangeState(SceneState.Complete);
 

@@ -1,4 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 namespace SoapTools.SceneTransition
 {
@@ -7,6 +9,7 @@ namespace SoapTools.SceneTransition
         void LoadScene(int sceneIndex, bool isFadeOut = true);
         UniTask PreLoadScene();
         UniTask UnloadAllScenes();
-        void FadeOut();
+        void PostScene();
+        AsyncOperationHandle<SceneInstance> DequeueSceneInstance();
     }
 }

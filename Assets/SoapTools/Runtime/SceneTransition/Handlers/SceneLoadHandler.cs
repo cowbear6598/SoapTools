@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -36,22 +35,22 @@ namespace SoapTools.SceneTransition
                 stateHandler.ChangeState(SceneState.Complete);
 
                 if (IsFadeOut)
-                    view.SetAppear(false);
+                    PostScene();
             };
         }
 
         public async UniTask UnloadAllScenes()
         {
-            if (loadedScenes.Count > 0)
+            if (loadedScenes.Count == 0)
+                return;
+
+            int total = loadedScenes.Count;
+
+            for (int i = 0; i < total; i++)
             {
-                int total = loadedScenes.Count;
+                var unloadScene = loadedScenes.Dequeue();
 
-                for (int i = 0; i < total; i++)
-                {
-                    var unloadScene = loadedScenes.Dequeue();
-
-                    await Addressables.UnloadSceneAsync(unloadScene).Task;
-                }
+                await Addressables.UnloadSceneAsync(unloadScene).Task;
             }
         }
 
@@ -67,12 +66,14 @@ namespace SoapTools.SceneTransition
             return true;
         }
 
-        public void FadeOut()
+        public void PostScene()
         {
             if (stateHandler.GetState() != SceneState.Complete)
                 return;
 
             view.SetAppear(false);
         }
+
+        public AsyncOperationHandle<SceneInstance> DequeueSceneInstance() => loadedScenes.Dequeue();
     }
 }

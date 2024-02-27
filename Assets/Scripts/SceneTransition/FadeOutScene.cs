@@ -10,7 +10,7 @@ namespace SceneTransition
 
         public void Button_FadeOut()
         {
-            sceneService.FadeOut();
+            sceneService.PostScene();
         }
     }
 }

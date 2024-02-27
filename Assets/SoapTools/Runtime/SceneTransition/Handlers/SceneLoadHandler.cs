@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -14,7 +15,7 @@ namespace SoapTools.SceneTransition
         [Inject] private readonly SceneScriptableObject sceneScriptableObject;
         [Inject] private readonly SceneStateHandler     stateHandler;
         [Inject] private readonly SceneView             view;
-        
+
         private Queue<AsyncOperationHandle<SceneInstance>> loadedScenes = new();
 
         public async void LoadScene(int sceneIndex, bool IsFadeOut = true)
@@ -22,21 +23,13 @@ namespace SoapTools.SceneTransition
             if (!await PreLoadScene())
                 return;
 
+            stateHandler.ChangeState(SceneState.Loading);
+
             Addressables.LoadSceneAsync(sceneScriptableObject.sceneAssets[sceneIndex], LoadSceneMode.Additive).Completed += async (handle) =>
             {
                 stateHandler.ChangeState(SceneState.Unloading);
 
-                if (loadedScenes.Count > 0)
-                {
-                    int total = loadedScenes.Count;
-
-                    for (int i = 0; i < total; i++)
-                    {
-                        var unloadScene = loadedScenes.Dequeue();
-
-                        await Addressables.UnloadSceneAsync(unloadScene).Task;
-                    }
-                }
+                await UnloadAllScenes();
 
                 loadedScenes.Enqueue(handle);
 
@@ -47,15 +40,27 @@ namespace SoapTools.SceneTransition
             };
         }
 
-        private async UniTask<bool> PreLoadScene()
+        public async UniTask UnloadAllScenes()
+        {
+            if (loadedScenes.Count > 0)
+            {
+                int total = loadedScenes.Count;
+
+                for (int i = 0; i < total; i++)
+                {
+                    var unloadScene = loadedScenes.Dequeue();
+
+                    await Addressables.UnloadSceneAsync(unloadScene).Task;
+                }
+            }
+        }
+
+        public async UniTask<bool> PreLoadScene()
         {
             if (stateHandler.GetState() != SceneState.Complete)
                 return false;
 
-            // 開始讀取場景
             view.SetAppear(true);
-
-            stateHandler.ChangeState(SceneState.Loading);
 
             await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
 

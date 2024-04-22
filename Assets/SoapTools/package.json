@@ -1,17 +1,16 @@
 {
   "name": "com.soap.soap-tools",
-  "version": "0.1.1",
+  "version": "0.1.4",
   "description": "我常用的開發工具",
   "displayName": "SoapTools",
   "unity": "2022.3",
   "unityRelease": "14f1",
   "dependencies": {
     "com.neuecc.unirx": "7.1.0",
-    "com.cysharp.unitask": "2.5.0",
+    "com.cysharp.unitask": "2.5.4",
     "com.unity.test-framework": "1.4.2",
-    "com.unity.addressables": "1.21.19",
-    "jp.hadashikick.vcontainer": "1.14.0",
-    "com.cysharp.messagepipe": "1.7.4"
+    "com.unity.addressables": "1.21.20",
+    "com.cysharp.messagepipe": "1.8.1"
   },
   "author": {
     "name": "Soap",

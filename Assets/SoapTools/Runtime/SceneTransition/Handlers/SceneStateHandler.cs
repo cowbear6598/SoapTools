@@ -1,4 +1,6 @@
-﻿namespace SoapTools.SceneTransition
+﻿using SoapTools.SceneTransition.Contracts;
+
+namespace SoapTools.SceneTransition.Handlers
 {
     public class SceneStateHandler
     {

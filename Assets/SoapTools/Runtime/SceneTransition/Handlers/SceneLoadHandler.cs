@@ -1,78 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using SoapTools.SceneTransition.Contracts;
 using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
-using VContainer;
 
-namespace SoapTools.SceneTransition
+namespace SoapTools.SceneTransition.Handlers
 {
-    public class SceneLoadHandler
-    {
-        [Inject] private readonly SceneScriptableObject sceneScriptableObject;
-        [Inject] private readonly SceneStateHandler     stateHandler;
-        [Inject] private readonly SceneView             view;
+	public class SceneLoadHandler
+	{
+		private readonly SceneStateHandler stateHandler;
+		private readonly SceneView         view;
 
-        private Queue<SceneInstance> loadedScenes = new();
+		private readonly Queue<SceneInstance> loadedScenes = new();
 
-        public async UniTask LoadScene(int sceneIndex, bool IsFadeOut = true)
-        {
-            if (!await PreLoadScene())
-                return;
+		public SceneLoadHandler(SceneStateHandler stateHandler, SceneView view)
+		{
+			this.stateHandler = stateHandler;
+			this.view         = view;
+		}
 
-            stateHandler.ChangeState(SceneState.Loading);
+		public async void LoadScene(AssetReference sceneAsset, bool IsFadeOut = true)
+		{
+			if (!await PreLoadScene())
+				return;
 
-            var handle = Addressables.LoadSceneAsync(sceneScriptableObject.sceneAssets[sceneIndex], LoadSceneMode.Additive).Task;
+			stateHandler.ChangeState(SceneState.Loading);
 
-            await handle;
+			var handle = Addressables.LoadSceneAsync(sceneAsset, LoadSceneMode.Additive).Task;
 
-            stateHandler.ChangeState(SceneState.Unloading);
+			await handle;
 
-            await UnloadAllScenes();
+			stateHandler.ChangeState(SceneState.Unloading);
 
-            loadedScenes.Enqueue(handle.Result);
+			await UnloadAllScenes();
 
-            stateHandler.ChangeState(SceneState.Complete);
+			loadedScenes.Enqueue(handle.Result);
 
-            if (IsFadeOut)
-                PostScene();
-        }
+			stateHandler.ChangeState(SceneState.Complete);
 
-        public async UniTask UnloadAllScenes()
-        {
-            if (loadedScenes.Count == 0)
-                return;
+			if (IsFadeOut)
+				PostScene();
+		}
 
-            int total = loadedScenes.Count;
+		public async UniTask UnloadAllScenes()
+		{
+			if (loadedScenes.Count == 0)
+				return;
 
-            for (int i = 0; i < total; i++)
-            {
-                var unloadScene = loadedScenes.Dequeue();
+			int total = loadedScenes.Count;
 
-                await Addressables.UnloadSceneAsync(unloadScene).Task;
-            }
-        }
+			for (int i = 0; i < total; i++)
+			{
+				var unloadScene = loadedScenes.Dequeue();
 
-        public async UniTask<bool> PreLoadScene()
-        {
-            if (stateHandler.GetState() != SceneState.Complete)
-                return false;
+				await Addressables.UnloadSceneAsync(unloadScene).Task;
+			}
+		}
 
-            view.SetAppear(true);
+		public async UniTask<bool> PreLoadScene()
+		{
+			if (stateHandler.GetState() != SceneState.Complete)
+				return false;
 
-            await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+			view.SetAppear(true);
 
-            return true;
-        }
+			await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
 
-        public void PostScene()
-        {
-            if (stateHandler.GetState() != SceneState.Complete)
-                return;
+			return true;
+		}
 
-            view.SetAppear(false);
-        }
-    }
+		public void PostScene()
+		{
+			if (stateHandler.GetState() != SceneState.Complete)
+				return;
+
+			view.SetAppear(false);
+		}
+	}
 }

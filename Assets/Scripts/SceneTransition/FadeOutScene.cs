@@ -4,13 +4,13 @@ using VContainer;
 
 namespace SceneTransition
 {
-    public class FadeOutScene : MonoBehaviour
-    {
-        [Inject] private readonly ISceneService sceneService;
+	public class FadeOutScene : MonoBehaviour
+	{
+		[Inject] private readonly SceneFacade sceneFacade;
 
-        public void Button_FadeOut()
-        {
-            sceneService.PostScene();
-        }
-    }
+		public void Button_FadeOut()
+		{
+			sceneFacade.PostScene();
+		}
+	}
 }

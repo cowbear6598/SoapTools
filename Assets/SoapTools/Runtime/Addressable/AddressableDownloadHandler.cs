@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using MEC;
+using SoapTools.Addressable.Contracts;
 using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

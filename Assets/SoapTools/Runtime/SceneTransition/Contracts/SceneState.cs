@@ -1,4 +1,4 @@
-﻿namespace SoapTools.SceneTransition
+﻿namespace SoapTools.SceneTransition.Contracts
 {
     public enum SceneState
     {

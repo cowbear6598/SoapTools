@@ -240,7 +240,6 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 1925809802}
-  sceneScriptableObject: {fileID: 11400000, guid: e9af05245d426714b8f3466985ec1ef1, type: 2}
 --- !u!1 &274725117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,6 +1029,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 428f781f39a240ba8f66ce2a4ba0f45e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneReferences:
+  - m_AssetGUID: 754281a6a6ab05d44a5180b008157cfa
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  - m_AssetGUID: bec4b5d74fa3b79478dff1a6e98b2ced
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
 --- !u!114 &1925809809
 MonoBehaviour:
   m_ObjectHideFlags: 0

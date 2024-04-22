@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SoapTools.Addressable;
+using SoapTools.Addressable.Contracts;
 using TMPro;
 using UniRx;
 using UnityEngine;

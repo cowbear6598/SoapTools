@@ -8,25 +8,25 @@ namespace Popup
 {
     public class UI_Popup : MonoBehaviour
     {
-        [Inject] private IPopupService popupService;
+        [Inject] private IPopup popup;
 
         public async void Button_OnlyContent()
         {
-            popupService.Show("OnlyContent");
+            popup.Show("OnlyContent");
 
             await UniTask.Delay(TimeSpan.FromSeconds(1));
 
-            popupService.Close();
+            popup.Close();
         }
 
         public void Button_ContentWithConfirm()
         {
-            popupService.Show("ContentWithConfirm", () => Debug.Log("Confirm"));
+            popup.Show("ContentWithConfirm", () => Debug.Log("Confirm"));
         }
 
         public void Button_ContentWithAll()
         {
-            popupService.Show("ContentWithAll", () => Debug.Log("Confirm"), () => Debug.Log("Cancel"));
+            popup.Show("ContentWithAll", () => Debug.Log("Confirm"), () => Debug.Log("Cancel"));
         }
     }
 }

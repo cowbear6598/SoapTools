@@ -1,10 +1,12 @@
 ﻿using System.Threading.Tasks;
 using NUnit.Framework;
-using Test.Editor.Database;
 using SoapTools.Database;
+using SoapTools.Database.Builders;
+using SoapTools.Database.ScriptableObjects;
+using Test.Editor.Database;
 using UnityEngine;
 
-namespace Test.Editor.Database
+namespace Tests.Editor.Database
 {
     [TestFixture]
     public class RestfulTests

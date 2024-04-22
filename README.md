@@ -2,7 +2,6 @@
 
 - 自己在開發時基本上都會用到的工具或功能（一堆都是 Cysharp 的）。
 - 依賴：
-    - [VContainer](https://github.com/hadashiA/VContainer)
     - [UniRx](https://github.com/neuecc/UniRx)
     - [UniTask](https://github.com/Cysharp/UniTask)
     - [MessagePipe](https://github.com/Cysharp/MessagePipe)
@@ -22,7 +21,6 @@ URL: https://package.openupm.com
 Scope(s): 
          com.cysharp.unitask
          com.neuecc.unirx
-         jp.hadashikick.vcontainer
          com.cysharp.messagepipe
 ```
 
@@ -96,15 +94,6 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
     - SetMethod(RestfulMethod method) - 設定方法。
     - SetBody<TBody>(TBody body) - 設定 Body。
     - AddQuery(string key, string value) - 增加 Query。
-
-### GraphQL
-
-- ScriptableObject
-    - ![](https://github.com/cowbear6598/SoapTools/blob/main/Screenshots/GraphQLSO.png)
-- GraphQLBuilder
-    - SetRequestSO(GraphQLRequestSO requestSO) - 設定 ScriptableObject。
-    - SetOperation(Operation operation) - 設定 query/mutation。
-    - SetContent(string content) - 設定內容。
 
 ## 場景轉換 (Preview)
 

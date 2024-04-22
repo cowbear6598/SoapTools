@@ -8,7 +8,7 @@ using Object = UnityEngine.Object;
 
 namespace Tests.Runtime.Popup
 {
-    public class PopupTests
+    public class PopupFacadeTests
     {
         private PopupView popupView;
 

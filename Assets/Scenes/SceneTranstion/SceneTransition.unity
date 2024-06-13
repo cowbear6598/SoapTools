@@ -240,6 +240,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 1925809802}
+  - {fileID: 887458771}
 --- !u!1 &274725117
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +641,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517971970}
   m_CullTransparentMesh: 1
+--- !u!1 &887458771 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8172608104605981971, guid: 2d399a5c93424224994a4b0e3d686860, type: 3}
+  m_PrefabInstance: {fileID: 506225904001354675}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &891460903
 GameObject:
   m_ObjectHideFlags: 0

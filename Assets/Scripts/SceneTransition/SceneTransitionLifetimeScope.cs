@@ -9,7 +9,6 @@ namespace SceneTransition
 	{
 		protected override void Configure(IContainerBuilder builder)
 		{
-			builder.RegisterComponentInHierarchy<SceneView>();
 			builder.Register<SceneStateHandler>(Lifetime.Singleton);
 			builder.Register<SceneLoadHandler>(Lifetime.Singleton);
 			builder.Register<SceneFacade>(Lifetime.Singleton);

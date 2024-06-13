@@ -1,7 +1,7 @@
-﻿using System;
+﻿#nullable enable
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using SoapTools.SceneTransition.Contracts;
+using SoapTools.SceneTransition.Type;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
@@ -11,20 +11,21 @@ namespace SoapTools.SceneTransition.Handlers
 	public class SceneLoadHandler
 	{
 		private readonly SceneStateHandler stateHandler;
-		private readonly SceneView         view;
 
 		private readonly Queue<SceneInstance> loadedScenes = new();
 
-		public SceneLoadHandler(SceneStateHandler stateHandler, SceneView view)
-		{
-			this.stateHandler = stateHandler;
-			this.view         = view;
-		}
+		private ISceneEffect? sceneEffect;
 
-		public async void LoadScene(AssetReference sceneAsset, bool IsFadeOut = true)
+		public SceneLoadHandler(SceneStateHandler stateHandler)
+			=> this.stateHandler = stateHandler;
+
+		public async void LoadScene(AssetReference sceneAsset, bool IsAutoPostScene = true)
 		{
-			if (!await PreLoadScene())
+			if (stateHandler.GetState() != SceneState.Complete)
 				return;
+
+			if (sceneEffect != null)
+				await sceneEffect.PreLoadScene();
 
 			stateHandler.ChangeState(SceneState.Loading);
 
@@ -40,18 +41,18 @@ namespace SoapTools.SceneTransition.Handlers
 
 			stateHandler.ChangeState(SceneState.Complete);
 
-			if (IsFadeOut)
-				PostScene();
+			if (IsAutoPostScene && sceneEffect != null)
+				await sceneEffect.PostScene();
 		}
 
-		public async UniTask UnloadAllScenes()
+		private async UniTask UnloadAllScenes()
 		{
 			if (loadedScenes.Count == 0)
 				return;
 
-			int total = loadedScenes.Count;
+			var total = loadedScenes.Count;
 
-			for (int i = 0; i < total; i++)
+			for (var i = 0; i < total; i++)
 			{
 				var unloadScene = loadedScenes.Dequeue();
 
@@ -59,24 +60,9 @@ namespace SoapTools.SceneTransition.Handlers
 			}
 		}
 
-		public async UniTask<bool> PreLoadScene()
-		{
-			if (stateHandler.GetState() != SceneState.Complete)
-				return false;
+		public void SetSceneEffect(ISceneEffect sceneEffect) => this.sceneEffect = sceneEffect;
+		public void ClearSceneEffect() => sceneEffect = null;
 
-			view.SetAppear(true);
-
-			await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
-
-			return true;
-		}
-
-		public void PostScene()
-		{
-			if (stateHandler.GetState() != SceneState.Complete)
-				return;
-
-			view.SetAppear(false);
-		}
+		public void PostScene() => sceneEffect?.PostScene();
 	}
 }

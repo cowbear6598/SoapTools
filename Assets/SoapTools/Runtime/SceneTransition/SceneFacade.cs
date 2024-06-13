@@ -1,5 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
-using SoapTools.SceneTransition.Handlers;
+﻿using SoapTools.SceneTransition.Handlers;
 using UnityEngine.AddressableAssets;
 
 namespace SoapTools.SceneTransition
@@ -9,13 +8,18 @@ namespace SoapTools.SceneTransition
 		private readonly SceneLoadHandler loadHandler;
 
 		public SceneFacade(SceneLoadHandler loadHandler)
-		{
-			this.loadHandler = loadHandler;
-		}
+			=> this.loadHandler = loadHandler;
 
-		public void    LoadScene(AssetReference sceneAsset, bool IsFadeOut = true) => loadHandler.LoadScene(sceneAsset, IsFadeOut);
-		public UniTask PreLoadScene()    => loadHandler.PreLoadScene();
-		public UniTask UnloadAllScenes() => loadHandler.UnloadAllScenes();
-		public void    PostScene()       => loadHandler.PostScene();
+		public void LoadScene(AssetReference sceneAsset, bool IsAutoPostScene = true)
+			=> loadHandler.LoadScene(sceneAsset, IsAutoPostScene);
+
+		public void SetSceneEffect(ISceneEffect sceneEffect)
+			=> loadHandler.SetSceneEffect(sceneEffect);
+
+		public void ClearSceneEffect()
+			=> loadHandler.ClearSceneEffect();
+
+		public void PostScene()
+			=> loadHandler.PostScene();
 	}
 }

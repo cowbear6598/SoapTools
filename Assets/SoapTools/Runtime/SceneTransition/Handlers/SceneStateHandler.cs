@@ -1,4 +1,4 @@
-﻿using SoapTools.SceneTransition.Contracts;
+﻿using SoapTools.SceneTransition.Type;
 
 namespace SoapTools.SceneTransition.Handlers
 {

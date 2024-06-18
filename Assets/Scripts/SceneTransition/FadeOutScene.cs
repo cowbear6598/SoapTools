@@ -1,16 +1,6 @@
-﻿using SoapTools.SceneTransition;
-using UnityEngine;
-using VContainer;
+﻿using UnityEngine;
 
 namespace SceneTransition
 {
-	public class FadeOutScene : MonoBehaviour
-	{
-		[Inject] private readonly SceneFacade sceneFacade;
-
-		public void Button_FadeOut()
-		{
-			sceneFacade.PostScene();
-		}
-	}
+	public class FadeOutScene : MonoBehaviour { }
 }

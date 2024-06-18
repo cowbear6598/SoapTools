@@ -1,27 +1,19 @@
-﻿using System;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using PrimeTween;
-using SoapTools.SceneTransition;
+using SoapTools.SceneController;
 using UnityEngine;
-using VContainer;
 
 namespace SceneTransition
 {
-	public class SceneView : MonoBehaviour, ISceneEffect
+	public class SceneView : MonoBehaviour, ISceneTransition
 	{
-		[Inject] private readonly SceneFacade sceneFacade;
-
 		[SerializeField] private CanvasGroup canvasGroup;
 
-		private void OnEnable() => sceneFacade.SetSceneEffect(this);
-
-		private void OnDisable() => sceneFacade.ClearSceneEffect();
-
-		private UniTask SetAppear(bool IsOn)
+		private async UniTask SetAppear(bool IsOn)
 		{
 			canvasGroup.interactable = canvasGroup.blocksRaycasts = IsOn;
 
-			return Tween.Alpha(canvasGroup, IsOn ? 1 : 0, 0.5f).ToUniTask();
+			await Tween.Alpha(canvasGroup, IsOn ? 1 : 0, 0.5f);
 		}
 
 		public UniTask PreLoadScene() => SetAppear(true);

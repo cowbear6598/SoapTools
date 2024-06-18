@@ -62,13 +62,6 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
 - DisableCamera() 關閉相機。
 - PauseCamera() 暫停相機。
 
-## Popup
-
-- 可以看 Popup 場景示範。
-- IPopupService.cs
-    - SetContent(string content, Action confirmBtn, Action cancelBtn) - 設定內容。
-    - Close() - 關閉。
-
 ## Addressable (Preview)
 
 - 目前只有簡易的下載與熱更新。

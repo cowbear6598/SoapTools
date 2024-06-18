@@ -1,24 +1,49 @@
-﻿using SoapTools.SceneTransition;
+﻿using System;
+using SoapTools.SceneController;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using VContainer;
 
 namespace SceneTransition
 {
 	public class UI_Scene : MonoBehaviour
 	{
-		[Inject] private readonly SceneFacade sceneFacade;
-
 		[SerializeField] private AssetReference[] sceneReferences;
 
-		public void Button_FadeInFadeOut()
+		[SerializeField] private SceneView sceneView;
+
+		private ISceneTransition transition;
+
+		private readonly SceneRepository repository = new();
+
+		private void Awake() { transition = sceneView.GetComponent<ISceneTransition>(); }
+
+		public async void Button_FadeInFadeOut()
 		{
-			sceneFacade.LoadScene(sceneReferences[0]);
+			var builder = new SceneControllerBuilder(repository, transition);
+
+			await builder.PreLoadScene()
+			             .UnloadAllScenes()
+			             .LoadScene(sceneReferences[0])
+			             .PostScene()
+			             .Execute();
 		}
 
-		public void Button_FadeInOnly()
+		public async void Button_LoadScene()
 		{
-			sceneFacade.LoadScene(sceneReferences[1], false);
+			var builder = new SceneControllerBuilder(repository, transition);
+
+			await builder.LoadScene(sceneReferences[0])
+			             .Execute();
+		}
+
+		public async void Button_FadeInOnly()
+		{
+			var builder = new SceneControllerBuilder(repository, transition);
+
+			await builder.PreLoadScene()
+			             .UnloadAllScenes()
+			             .LoadScene(sceneReferences[1])
+			             .Execute();
 		}
 	}
 }

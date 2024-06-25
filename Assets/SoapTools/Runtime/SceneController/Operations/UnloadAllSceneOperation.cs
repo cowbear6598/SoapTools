@@ -1,7 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.SceneManagement;
 
 namespace SoapTools.SceneController.Operations
 {
@@ -16,7 +14,7 @@ namespace SoapTools.SceneController.Operations
 		{
 			var sceneCount = repository.GetLoadedSceneCount();
 
-			if (sceneCount <= 1)
+			if (sceneCount < 1)
 				return;
 
 			for (var i = 0; i < sceneCount; i++)

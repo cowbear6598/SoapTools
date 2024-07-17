@@ -3,23 +3,23 @@ using UnityEngine.UI;
 
 namespace SoapTools.Misc
 {
-    public class CanvasResolutionHandler : MonoBehaviour
-    {
-        private CanvasScaler canvasScaler;
+	public class CanvasResolutionHandler : MonoBehaviour
+	{
+		private CanvasScaler canvasScaler;
 
-        private void Awake()
-        {
-            canvasScaler = GetComponent<CanvasScaler>();
-        
-            SetScaler();    
-        }
+		private void Awake()
+		{
+			canvasScaler = GetComponent<CanvasScaler>();
 
-        public void SetScaler()
-        {
-            float screenWidthScale  = Screen.width  / canvasScaler.referenceResolution.x;
-            float screenHeightScale = Screen.height / canvasScaler.referenceResolution.y;
+			SetScaler();
+		}
 
-            canvasScaler.matchWidthOrHeight = screenWidthScale > screenHeightScale ? 1 : 0;
-        }
-    }
+		private void SetScaler()
+		{
+			var screenWidthScale  = Screen.width / canvasScaler.referenceResolution.x;
+			var screenHeightScale = Screen.height / canvasScaler.referenceResolution.y;
+
+			canvasScaler.matchWidthOrHeight = screenWidthScale > screenHeightScale ? 1 : 0;
+		}
+	}
 }

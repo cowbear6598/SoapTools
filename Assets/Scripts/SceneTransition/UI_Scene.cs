@@ -1,4 +1,5 @@
 ﻿using SoapTools.SceneController.Application.Interfaces;
+using SoapTools.SceneController.Application.Repository;
 using SoapTools.SceneController.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

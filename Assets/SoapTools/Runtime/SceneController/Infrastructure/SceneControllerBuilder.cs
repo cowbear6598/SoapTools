@@ -2,6 +2,7 @@
 using Cysharp.Threading.Tasks;
 using SoapTools.SceneController.Application.Interfaces;
 using SoapTools.SceneController.Application.Operations;
+using SoapTools.SceneController.Application.Repository;
 using UnityEngine.AddressableAssets;
 
 namespace SoapTools.SceneController.Infrastructure

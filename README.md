@@ -1,19 +1,13 @@
 # Document
 
-- 自己在開發時基本上都會用到的工具或功能（一堆都是 Cysharp 的）。
+- 自己在開發時基本上都會用到的工具或功能，主要想保有實作的多變性，所以很多其實還得多寫一點，例如 SceneController，可以用 DI 直接解決一堆問題，也可以用純粹的寫法搞定，所以就看使用的人怎麼做。
 - 依賴：
     - [UniRx](https://github.com/neuecc/UniRx)
     - [UniTask](https://github.com/Cysharp/UniTask)
-    - [MessagePipe](https://github.com/Cysharp/MessagePipe)
-    - [PrimeTween](https://github.com/KyryloKuzyk/PrimeTween)
     - Addressable
-    - [MEC (More Effective Coroutines)](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975)
+    - [MEC (More Effective Coroutines)](https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975) (已放入在裡面)
 
 # Install
-
-- Install [PrimeTween](https://github.com/KyryloKuzyk/PrimeTween)
-- Open Edit => Project Settings => Package Manager
-- Add a new Scoped Registry
 
 ```
 Name: package.openupm.com
@@ -21,7 +15,6 @@ URL: https://package.openupm.com
 Scope(s): 
          com.cysharp.unitask
          com.neuecc.unirx
-         com.cysharp.messagepipe
 ```
 
 - Open Window => Package Manager

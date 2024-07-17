@@ -1,5 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
-using SoapTools.SceneController.Infrastructure;
+using SoapTools.SceneController.Application.Repository;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 

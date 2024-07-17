@@ -8,7 +8,7 @@
       "url": "https://package.openupm.com"
     },
     "com.cysharp.unitask": {
-      "version": "2.5.4",
+      "version": "2.5.5",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -246,13 +246,6 @@
         "com.unity.modules.ui": "1.0.0",
         "com.unity.modules.imgui": "1.0.0"
       }
-    },
-    "jp.hadashikick.vcontainer": {
-      "version": "https://github.com/hadashiA/VContainer.git?path=VContainer/Assets/VContainer#1.15.3",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "f2afd2ac175a1e04ac59a8f69794df827b53b732"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

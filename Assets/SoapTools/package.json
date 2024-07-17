@@ -1,6 +1,6 @@
 {
   "name": "com.soap.soap-tools",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "我常用的開發工具",
   "displayName": "SoapTools",
   "unity": "2022.3",
@@ -9,8 +9,7 @@
     "com.neuecc.unirx": "7.1.0",
     "com.cysharp.unitask": "2.5.4",
     "com.unity.test-framework": "1.4.4",
-    "com.unity.addressables": "1.21.21",
-    "com.cysharp.messagepipe": "1.8.1"
+    "com.unity.addressables": "1.21.21"
   },
   "author": {
     "name": "Soap",

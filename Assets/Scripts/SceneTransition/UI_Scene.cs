@@ -1,5 +1,5 @@
-﻿using System;
-using SoapTools.SceneController;
+﻿using SoapTools.SceneController.Application.Interfaces;
+using SoapTools.SceneController.Infrastructure;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -9,23 +9,42 @@ namespace SceneTransition
 	{
 		[SerializeField] private AssetReference[] sceneReferences;
 
-		[SerializeField] private SceneView sceneView;
-
 		private ISceneTransition transition;
 
 		private readonly SceneRepository repository = new();
 
-		private void Awake() { transition = sceneView.GetComponent<ISceneTransition>(); }
+		private void Awake()
+		{
+			transition = FindFirstObjectByType<SceneView>()
+				.GetComponent<ISceneTransition>();
+		}
 
 		public async void Button_FadeInFadeOut()
 		{
-			var builder = new SceneControllerBuilder(repository, transition);
+			await new SceneControllerBuilder(repository, transition)
+				.LoadSingleScene(sceneReferences[0]);
 
-			await builder.PreLoadScene()
-			             .UnloadAllScenes()
-			             .LoadScene(sceneReferences[0])
-			             .PostScene()
-			             .Execute();
+			// same as below
+			// var builder = new SceneControllerBuilder(repository, transition);
+
+			// await builder.TransitionIn()
+			//              .UnloadAllScenes()
+			//              .LoadScene(sceneReferences[0])
+			//              .TransitionOut()
+			//              .Execute();
+		}
+
+		public async void Button_NoTransition()
+		{
+			await new SceneControllerBuilder(repository)
+				.LoadSingleScene(sceneReferences[0]);
+
+			// same as below
+			// var builder = new SceneControllerBuilder(repository, transition);
+
+			// await builder.UnloadAllScenes()
+			//              .LoadScene(sceneReferences[0])
+			//              .Execute();
 		}
 
 		public async void Button_LoadScene()
@@ -40,7 +59,7 @@ namespace SceneTransition
 		{
 			var builder = new SceneControllerBuilder(repository, transition);
 
-			await builder.PreLoadScene()
+			await builder.TransitionIn()
 			             .UnloadAllScenes()
 			             .LoadScene(sceneReferences[1])
 			             .Execute();

@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 
-namespace SoapTools.SceneController.Operations
+namespace SoapTools.SceneController.Application.Operations
 {
 	public interface ISceneOperation
 	{

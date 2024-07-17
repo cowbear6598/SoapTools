@@ -88,6 +88,14 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
     - SetBody<TBody>(TBody body) - 設定 Body。
     - AddQuery(string key, string value) - 增加 Query。
 
-## 場景轉換 (Preview)
+## 場景轉換 (Alpha)
 
-- 目前只做了非常簡易的淡入淡出場景轉換，可以參考 SceneTransition 場景使用。
+- 詳細可看 SceneTransition 場景，如果有 DI Framework，很多東西可以變得很簡單就注入。
+- 使用方法：
+    - ISceneTransition 建立自己的場景轉換效果並套上此 Interface 讓系統使用。
+    - SceneRepository 用來管理場景。
+    - SceneControllerBuilder(SceneRepository, ISceneTransition?) 用來建立場景轉換的流程，也是使用場景轉換的進入點，ISceneTransition 為可選。
+        - TransitionIn - 開始轉換
+        - TransitionOut - 結束轉換
+        - LoadScene(AssetReference) - 載入指定場景
+        - UnloadAllScene - 卸載全部場景

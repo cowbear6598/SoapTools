@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine.ResourceManagement.ResourceProviders;
 
-namespace SoapTools.SceneController
+namespace SoapTools.SceneController.Infrastructure
 {
 	public class SceneRepository
 	{

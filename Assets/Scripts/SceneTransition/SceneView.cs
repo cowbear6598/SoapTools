@@ -1,6 +1,7 @@
 ﻿using Cysharp.Threading.Tasks;
 using PrimeTween;
 using SoapTools.SceneController;
+using SoapTools.SceneController.Application.Interfaces;
 using UnityEngine;
 
 namespace SceneTransition
@@ -16,7 +17,7 @@ namespace SceneTransition
 			await Tween.Alpha(canvasGroup, IsOn ? 1 : 0, 0.5f);
 		}
 
-		public UniTask PreLoadScene() => SetAppear(true);
-		public UniTask PostScene()    => SetAppear(false);
+		public UniTask TransitionIn() => SetAppear(true);
+		public UniTask TransitionOut()    => SetAppear(false);
 	}
 }

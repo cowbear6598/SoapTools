@@ -1,7 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
+using SoapTools.SceneController.Infrastructure;
 using UnityEngine.AddressableAssets;
 
-namespace SoapTools.SceneController.Operations
+namespace SoapTools.SceneController.Application.Operations
 {
 	public class UnloadAllSceneOperation : ISceneOperation
 	{

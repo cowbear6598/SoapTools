@@ -91,4 +91,5 @@ https://github.com/cowbear6598/SoapTools.git?path=Assets/SoapTools
         - TransitionIn - 開始轉換
         - TransitionOut - 結束轉換
         - LoadScene(AssetReference) - 載入指定場景
+        - UnloadLastScene - 卸載最後一個場景
         - UnloadAllScene - 卸載全部場景

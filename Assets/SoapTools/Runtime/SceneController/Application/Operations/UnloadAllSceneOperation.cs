@@ -1,7 +1,5 @@
 ﻿using Cysharp.Threading.Tasks;
 using SoapTools.SceneController.Application.Repository;
-using SoapTools.SceneController.Infrastructure;
-using UnityEngine.AddressableAssets;
 
 namespace SoapTools.SceneController.Application.Operations
 {
@@ -21,9 +19,9 @@ namespace SoapTools.SceneController.Application.Operations
 
 			for (var i = 0; i < sceneCount; i++)
 			{
-				var sceneInstance = repository.GetLastLoadedScene();
+				var unloadLastSceneOperation = new UnloadLastSceneOperation(repository);
 
-				await Addressables.UnloadSceneAsync(sceneInstance).Task;
+				await unloadLastSceneOperation.Execute();
 			}
 		}
 	}

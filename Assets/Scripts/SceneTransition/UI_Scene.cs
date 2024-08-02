@@ -48,6 +48,13 @@ namespace SceneTransition
 			//              .Execute();
 		}
 
+		public async void Button_UnloadLastScene()
+		{
+			await new SceneControllerBuilder(repository)
+			      .UnloadLastScene()
+			      .Execute();
+		}
+
 		public async void Button_LoadScene()
 		{
 			var builder = new SceneControllerBuilder(repository, transition);

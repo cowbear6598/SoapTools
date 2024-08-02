@@ -46,6 +46,12 @@ namespace SoapTools.SceneController.Infrastructure
 			=> AddOperation(new LoadSceneOperation(repository, sceneAsset));
 
 		/// <summary>
+		/// 卸載最後一個場景
+		/// </summary>
+		public SceneControllerBuilder UnloadLastScene()
+			=> AddOperation(new UnloadLastSceneOperation(repository));
+
+		/// <summary>
 		/// 卸載所有場景
 		/// </summary>
 		public SceneControllerBuilder UnloadAllScenes()

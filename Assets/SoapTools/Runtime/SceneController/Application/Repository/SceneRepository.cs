@@ -5,15 +5,15 @@ namespace SoapTools.SceneController.Application.Repository
 {
 	public class SceneRepository
 	{
-		private readonly Queue<SceneInstance> loadedScene = new();
+		private readonly Stack<SceneInstance> loadedScene = new();
 
 		public void AddLoadedScene(SceneInstance sceneInstance)
-			=> loadedScene.Enqueue(sceneInstance);
+			=> loadedScene.Push(sceneInstance);
 
 		public int GetLoadedSceneCount()
 			=> loadedScene.Count;
 
 		public SceneInstance GetLastLoadedScene()
-			=> loadedScene.Dequeue();
+			=> loadedScene.Pop();
 	}
 }
